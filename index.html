@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/typeit@8.3.3/dist/index.umd.js"></script>
+    <script src="https://wowjs.uk/dist/wow.min.js"></script>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <style>
+
+        @font-face{
+            font-family: 'Charle';
+            src: url(./fonts/CharlemagneStd-Bold.otf);
+        }
+        @font-face{
+            font-family: 'pretend';
+            src: url(./fonts/Pretendard-Regular.otf);
+        }
+        .container{
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* tab부분 */
+        .tab-btn{
+            width: 100%;
+        }
+        .tab01{
+            height: 39px;
+            line-height: 39px;
+            background: #404040;
+            color: #fff;
+            text-align: center;
+        }
+        .tab02{
+            height: 39px;
+            line-height: 39px;
+            background: #dbdbda;
+            color: #000;
+            text-align: center;
+        }
+
+        /* header부분 */
+        .header-top{
+            display: flex;
+            justify-content: space-between;
+        }
+        .q-nav ul{
+            display: flex;
+        }
+       .header{
+        z-index: 10;
+        position: relative;
+       }
+       nav{
+        width: 1200px;
+        position: absolute;
+       }
+       nav > ul{
+        overflow: hidden;
+       }
+       nav > ul > li{
+        float: left;
+        width: 150px;
+        text-align: center;
+       }
+       nav > ul > li >a{
+        display: inline-block;
+        padding: 10px;
+       }
+       .sub-nav{
+        background: #fff;
+        position: absolute;
+        display: none;
+        z-index: 99;
+       }
+       .sub-nav > li > a{
+        display: inline-block;
+        padding-top: 10px;
+       }
+       .sub-nav >ul {
+        width: 150px;
+       }
+       .sub-nav > ul > li{
+        font-size: 14px;
+        padding: 10px;
+       }
+
+
+        h1{
+            background: url(./images/logo-london.png) no-repeat center;
+            width: 281px;
+            height: 81px;
+            text-indent: -99999px;
+            padding-bottom: 150px;
+            transform: translateX(-2%);
+        }
+        .search-btn{
+            position: relative;
+            transform: translateY(60%);
+        }
+        .search-btn input{
+            padding: 5px;
+        }
+        .search-txt{
+            border-width: 0 0 1px;
+        }
+        input:focus{
+            outline: none;
+        }
+        .search-btn input:last-child{
+           position: absolute;
+           width:20px;
+           height:20px;
+           border:none;
+           top: 2px;
+           right: 0;
+           background:transparent url(./images/search.png) no-repeat center;
+           background-size:16px;
+           text-indent:-99999px;
+           cursor:pointer;
+        }
+        .q-nav{
+            transform: translateY(60%);
+            cursor: pointer;
+        }
+        .q-nav li{
+            margin-left: 20px;
+        }
+        .q-nav ul li:first-child{
+            background: url(./images/영국국기.jpg) no-repeat center;
+            background-size: contain;
+            width: 25px;
+            height: 29px;
+            text-indent: -99999px;
+        }
+        .q-nav ul li:nth-child(2){
+            background: url(./images/ico-bnb05-01.png) no-repeat center;
+            background-size: contain;
+            width: 31px;
+            height: 29px;
+            text-indent: -99999px;
+        }
+        .q-nav ul li:nth-child(3){
+            background: url(./images/ico-bnb01-01.png) no-repeat center;
+            background-size: contain;
+            width: 31px;
+            height: 29px;
+            text-indent: -99999px;
+        }
+        .q-nav ul li:last-child{
+            background: url(./images/ico-bnb02-01.png) no-repeat center;
+            background-size: contain;
+            width: 31px;
+            height: 29px;
+            text-indent: -99999px;
+        }
+
+        /* 슬라이드 부분 */
+        .swiper {
+        margin-top: 45px;
+        width: 100%;
+        height: 100%;
+         }
+
+        .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
+     
+        
+
+        /* 섹션 2번 텍스트*/
+        .sec02{
+            margin-top: 100px;
+        }
+        .sec02 h2{
+            font-family: 'Charle';
+            font-size: 36px;
+            text-align: center;
+        }
+        .sec02 p{
+            font-family: 'pretend';
+            font-size: 14px;
+            text-align: center;
+        }
+        /* 섹션 3번 아이템*/
+        .product{
+            margin-top: 125px;
+        }
+        .product h2{
+            font-family: 'Charle';
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .product ul li{
+            float: left;
+            position: relative;
+        }
+        .product ul li p{
+            position: absolute;
+            font-size: 12px;
+            padding-left: 19px;
+            bottom: -55px;
+        }
+     
+        .product .container ul li:first-child{
+            background: url(./images/홉스뮤04.avif) no-repeat center;
+            width: 297px;
+            height: 362px;
+            background-size: contain;
+        }
+        .product .container ul li:nth-child(2){
+            background: url(./images/0124-5364-1185L00-CONISTON-DRESS-IVORY-MULTI_02.avif) no-repeat center;
+            width: 297px;
+            height: 362px;
+            background-size: contain;
+        }
+        .product .container ul li:nth-child(3){
+            background: url(./images/0124-7636-1185L00-FOXCOTE-SKIRT-IVORY-MULTI_02.avif) no-repeat center;
+            width: 297px;
+            height: 362px;
+            background-size: contain;
+        }
+        .product .container ul li:last-child{
+            background: url(./images/0124-9678-1144L00-COLEMERE-JUMPER-BUTTERCREAM_05.avif) no-repeat center;
+            width: 297px;
+            height: 362px;
+            background-size: contain;
+        }
+        
+
+        /* 섹션 4번 아이템*/
+        .img-box .model01{
+            float: right;
+            background: url(./images/패션모델.PNG) no-repeat center;
+            width: 558px;
+            height: 780px;
+            background-size: contain;
+            margin: 60px 27px 0 0;
+        }
+        .img-box .model01 a{
+            background: #fff;
+            display: block;
+            margin-top: 350px;
+            margin-right: -450px;
+            text-align: center;
+            padding: 160px 160px;
+            transform: translateX(-70%);
+        }
+        .img-box .model01 p{
+            font-size: 15px;
+            padding-top: 20px;
+        }
+        .img-box .model01 span{
+            display: inline-block;
+            padding-top: 50px;
+        }
+        .img-box .model01 span:last-child{
+           border: 1px solid black;
+           margin-top: 50px;
+           padding: 20px;
+        }
+        .img-box .model01 span:last-child:hover{
+            background: rgb(30, 78, 30);
+            color: #fff;
+        }
+        .img-box .model01 h2{
+            font-size: 30px;
+            font-family: 'Charle';
+            padding-top: 30px;
+        }
+
+        /* 섹션 5번 아이템*/
+      
+       .banner02{      
+        position: relative;
+        margin-top: 1500px;
+       }
+       .banner02 .bannerText{
+        width: 100%;
+        top: 40%;
+        font-size: 25px;
+        font-weight: 700;
+        color: #fff;
+        padding-top: 150px;
+        padding-left: 70px;
+        position: absolute;
+       }
+       .banner02 .bannerText span{
+        display: inline-block;
+        margin-top: 30px;
+        border: 1px solid #fff;
+        opacity: 0.5;
+        padding: 20px;
+       }
+       .banner02 .bannerText span:hover{
+        background: #9b7373;
+        border: none;
+       }
+      
+
+       .sec06{
+        margin-top: 10px;
+       }
+       .sec06 h2{
+        font-family: 'Charle';
+        font-size: 32px;
+        text-align: center;
+        margin-bottom: 30px;
+       }
+       .sec06 h3{
+        font-family: 'pretend';
+        text-align: center;
+        font-size: 25px;
+       }
+       .product03 ul li{
+            float: left;
+            position: relative;
+            margin-top: 90px;
+            margin-bottom: 30px;
+        }
+        .product03 ul li p{
+            position: absolute;
+            font-size: 12px;
+            padding-left: 19px;
+            bottom: -55px;
+        }
+       .product03 .container ul li:first-child{
+            background: url(./images/홉스뮤01.avif) no-repeat center;
+            width: 297px;
+            height: 362px;
+            background-size: contain;
+        }
+        .product03 .container ul li:nth-child(2){
+            background: url(./images/홉스뮤02.avif) no-repeat center;
+            width: 297px;
+            height: 362px;
+            background-size: contain;
+        }
+        .product03 .container ul li:nth-child(3){
+            background: url(./images/홉스뮤03.avif) no-repeat center;
+            width: 297px;
+            height: 362px;
+            background-size: contain;
+        }
+        .product03 .container ul li:nth-child(4){
+            background: url(./images/홉스뮤04.avif) no-repeat center;
+            width: 297px;
+            height: 362px;
+            background-size: contain;
+        }
+        .product03 .container ul li:nth-child(5){
+            background: url(./images/홉스뮤05.jpg) no-repeat center;
+            width: 297px;
+            height: 362px;
+            background-size: contain;
+        }
+        .product03 .container ul li:nth-child(6){
+            background: url(./images/홉스뮤06.jpg) no-repeat center;
+            width: 297px;
+            height: 362px;
+            background-size: contain;
+        }
+        .product03 .container ul li:nth-child(7){
+            background: url(./images/홉스뮤07.jpg) no-repeat center;
+            width: 297px;
+            height: 362px;
+            background-size: contain;
+        }
+        .product03 .container ul li:last-child{
+            background: url(./images/홉스뮤08.jpg) no-repeat center;
+            width: 297px;
+            height: 362px;
+            background-size: contain;
+        }
+        .product03 .container ul li:hover{
+            transform: scale(1.1);
+            transition: 0.8s;
+        }
+
+
+
+
+
+
+
+
+        
+        .product04 .container{
+            display: flex;
+            margin-top: 1100px;
+        }
+        .product04 h2{
+            font-family: 'Charle';
+            font-size: 72px;
+            padding-left: 270px;
+            margin-bottom: 50px;
+        }
+        .product04 img{
+            margin-top: 74px;
+            width: 297px;
+            height: 320px;
+        }
+        .product04Text span{
+            display: inline-block;
+            margin-top: 10px;
+            padding: 15px;
+            border: 1px solid black;
+        }
+        .product04Text span:hover{
+            opacity: 0.5;
+            background: #36343b;
+            color: #fff;
+        }
+        .bn03{
+            margin-right: 25px;
+        }
+
+
+
+        .footer01{
+            margin-top: 100px;
+        }
+        .footer .footer-inner{
+            background: #b1b1b1;
+        }
+        .footer01 h2{
+            font-family: 'pretend';
+            font-size: 27px;
+            text-align: center;
+            padding-top: 30px;
+            margin-bottom: 40px;
+        }
+        .footer01 .email-text{
+            text-align: center;
+        }
+        .footer01 .email-text input:first-child{
+            width: 700px;
+            padding: 20px;
+            margin-left: 100px;
+            border: 1px solid black;
+        }
+        .footer01 .email-text input:focus{
+            outline: none;
+        }
+        .footer01 .email-text input:last-child{
+            border: none;
+            background: #000;
+            width: 200px;
+            padding: 20px;
+            color: #fff;
+            cursor: pointer;
+        }
+        .footer01 p{
+            margin-top: 40px;
+            text-align: center;
+        }
+        .footer01 .checkbox{
+            padding: 50px;
+            font-size: 18px;
+            margin-top: 60px;
+            text-align: center;
+            
+        }
+        .footer01 .checkbox input{
+            margin-left: 50px;
+        }
+
+
+         /*requirement*/
+        .requirement{
+            margin-top: 50px;
+        }
+        .requirement-inner ul{
+            display: flex;
+            padding-left: 370px;
+        }
+        .requirement-inner ul li{
+            width: 270px;
+            height: 298px;
+        }
+        .requirement-inner ul li h5{
+            position: relative;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        .requirement-inner ul li h5::after{
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: -20px;
+            background: #000;
+            width: 90px;
+            height: 1px;
+        }
+        .requirement-inner ul li p{
+            padding: 3px;
+           font-size: 14px;
+        }
+        .requirement04 p{
+            position: relative;
+            margin-left: 20px;
+        }
+        .requirement04 p::before{
+            position: absolute;
+            width: 10px;
+            padding: 20px;
+            top: -7px;
+            left: -40px;
+            content: '';
+            display: block;
+            background: url(./images/facebook-f.svg) no-repeat center;
+            background-size: 8px;
+        }
+        .requirement04 p:nth-child(3):before{
+            position: absolute;
+            width: 10px;
+            padding: 20px;
+            top: -7px;
+            left: -40px;
+            content: '';
+            display: block;
+            background: url(./images/twitter.svg) no-repeat center;
+            background-size: 11px;
+        }
+        .requirement04 p:nth-child(4):before{
+            position: absolute;
+            width: 10px;
+            padding: 20px;
+            top: -7px;
+            left: -40px;
+            content: '';
+            display: block;
+            background: url(./images/instagram.svg) no-repeat center;
+            background-size: 11px;
+        }
+        .requirement04 p:nth-child(5):before{
+            position: absolute;
+            width: 10px;
+            padding: 20px;
+            top: -7px;
+            left: -40px;
+            content: '';
+            display: block;
+            background: url(./images/youtube.svg) no-repeat center;
+            background-size: 11px;
+        }
+        .requirement05 p{
+            position: relative;
+            margin-left: 20px;
+        }
+        .requirement05 p::before{
+            position: absolute;
+            width: 10px;
+            padding: 20px;
+            top: -7px;
+            left: -40px;
+            content: '';
+            display: block;
+            background: url(./images/location-dot-solid\ \(1\).svg) no-repeat center;
+            background-size: 8px;
+        }
+        .requirement05 p:nth-child(3):before{
+            position: absolute;
+            width: 10px;
+            padding: 20px;
+            top: -7px;
+            left: -40px;
+            content: '';
+            display: block;
+            background: url(./images/envelope-regular.svg) no-repeat center;
+            background-size: 11px;
+        }
+        .requirement05 p:nth-child(4):before{
+            position: absolute;
+            width: 10px;
+            padding: 20px;
+            top: -7px;
+            left: -40px;
+            content: '';
+            display: block;
+            background: url(./images/phone-solid.svg) no-repeat center;
+            background-size: 11px;
+        }
+
+        /*footer 계산하는 부분*/
+        .footer-credit .footer-inner{
+            background: #fff;
+            display: flex;
+        }
+        .charge01{
+            background: url(./images/푸터1.PNG) no-repeat center;
+            width: 300px;
+            height: 100px;
+            background-size: 100px;
+            margin-left: 400px;
+        }
+        .charge02{
+            background: url(./images/푸터02.PNG) no-repeat center;
+            margin-left: 100px;
+            width: 540px;
+            height: 100px;
+            background-size: 500px;
+        }
+
+        .middle-banner{
+            margin-top: 1500px;
+        }
+        .middle-banner img{
+            width: 100%;
+        }
+        .bn01{
+            width: 100%;
+        }
+        .bn01 .slide-txt{
+            text-align: left;
+            transform: translateY(-150%);
+            margin-left: 100px;
+        }
+        .bn01 p{
+            font-weight: bold;
+            font-size: 52px;
+            color: #fff;
+        }
+        .bn01 span{
+            text-align: center;
+            display: block;
+            width: 200px;
+            padding: 20px;
+            border: 1px solid #fff;
+            color: #fff;
+            margin-top: 20px;
+        }
+        .bn01 span:hover{
+            opacity: 1;
+            background: #b1b1b1;
+        }
+
+       
+
+       
+      
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="inner">
+            <div class="tab-btn">
+                    <div class="tab01">Shop with confidence - local taxes & duties are calculated at checkout</div>
+                    <div class="tab02">FREE STANDARD DELIVERY OVER $150</div>
+            </div>
+            <header class="header">
+                <div class="container">
+                    <div class="header-top">
+                        <div class="search-btn">
+                            <input type="text" name="search-txt" class="search-txt" placeholder="search for products">
+                            <input type="submit" value="전송">
+                        </div>
+                        <h1><a href="#">로고</a></h1>
+                        <div class="q-nav">
+                            <ul>
+                                <li><a href="#">영국국기</a></li>
+                                <li><a href="#">프로필</a></li>
+                                <li><a href="#">홈</a></li>
+                                <li><a href="#">가방</a></li>
+                            </ul>
+                        </div> 
+                    </div>
+                    <nav class="main-nav">
+                        <ul>
+                            <li>
+                                <a href="#">NEW IN</a>
+                                <div class="sub-nav">
+                                    <ul>
+                                        <li><a href="#">Special Occasion</a></li>
+                                        <li><a href="#">Wedding Guest</a></li>
+                                        <li><a href="#">Work & Office</a></li>
+                                        <li><a href="#">Weekend</a></li>
+                                        <li><a href="#">Denim</a></li>
+                                        <li><a href="#">Wardrobe & Essentials</a></li>
+                                        <li><a href="#">Spots % Stripes</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#">WOMEN</a>
+                                <div class="sub-nav">
+                                    <ul>
+                                        <li><a href="#">Dresses</a></li>
+                                        <li><a href="#">Summer Dresses</a></li>
+                                        <li><a href="#">Floral Dresses</a></li>
+                                        <li><a href="#">Evening Dresses</a></li>
+                                        <li><a href="#">Work Dresses</a></li>
+                                        <li><a href="#">Silk Dresses</a></li>
+                                        <li><a href="#">Jersey Dresses</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#">HANDBAGS</a>
+                                <div class="sub-nav">
+                                    <ul>
+                                        <li><a href="#">Matching Shoes & Bags</a></li>
+                                        <li><a href="#">major Bags</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#">SHOES</a>
+                                <div class="sub-nav">
+                                    <ul>
+                                        <li><a href="#">Court Shoes</a></li>
+                                        <li><a href="#">Sandals & Espadrilles</a></li>
+                                        <li><a href="#">Flat Shoes</a></li>
+                                        <li><a href="#">Heeled Shoes</a></li>
+                                        <li><a href="#">Trainers</a></li>
+                                        <li><a href="#">Ballerinas</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#">UNISEX</a>
+                                <div class="sub-nav">
+                                    <ul>
+                                        <li><a href="#">Edition Collection</a></li>
+                                        <li><a href="#">Edition Story</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#">ADIDAS</a>
+                                <div class="sub-nav">
+                                    <ul>
+                                        <li><a href="#">Hobbs Sustain</a></li>
+                                        <li><a href="#">About Hobbs Sustain</a></li>
+                                        <li><a href="#">Enviroment</a></li>
+                                        <li><a href="#">Supply Chains</a></li>
+                                        <li><a href="#">Wellbeing</a></li>
+                                        <li><a href="#">Trending</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#">KIDS</a>
+                                <div class="sub-nav">
+                                    <ul>
+                                        <li><a href="#">SHOP BY CATEGORY</a></li>
+                                        <li><a href="#">Sale Coats & Jackets</a></li>
+                                        <li><a href="#">Sale Dresses</a></li>
+                                        <li><a href="#">Sale Trousers & Jeans</a></li>
+                                        <li><a href="#">Sale Shoes & Boots</a></li>
+                                        <li><a href="#">Sale Bags & Accessorie</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#">BEAUTY</a>
+                                <div class="sub-nav">
+                                    <ul>
+                                        <li><a href="#">Bags</a></li>
+                                        <li><a href="#">Fascinators</a></li>
+                                        <li><a href="#">Jewellery</a></li>
+                                        <li><a href="#">Scarves</a></li>
+                                        <li><a href="#">Clutch Bags</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>      
+                </div>
+            </header>
+            <!-- main section -->
+            <section class="sec sec01 main-banner swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="./images/런던 배너01.jpg" alt="">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/런던 배너02.jpg" alt="">
+                  </div>
+             
+                  <div class="autoplay-progress">
+                    <svg viewBox="0 0 48 48">
+                      <circle cx="24" cy="24" r="20"></circle>
+                    </svg>
+                    <span></span>
+                  </div>
+                </section>
+            <section class="sec sec02 text">
+                <div class="container">
+                <h2>London iconic fashion brand</h2>
+                <p>Our iconic Falabella is the original vegan luxury handbag. Each is thoughtfully handcrafted by artisans in Italy using next-gen sustainable material innovations.<br> 
+                    Named after Stella McCartney's favourite species of horse, the cruelty-free outline is not only inspired by nature, but designed to protect it.<br> 
+                    The story of the Falabella is the story of Stella McCartney. Debuting as a rebellion against the notion that luxury requires leather,<br>  
+                    it has become a vehicle for vegan innovation and collaboration evolving with and embodying our mission of never compromising on desirability for sustainability.<br>  
+                    Today, it is crafted materials ranging from grapes and apples to recyclable plant-based alternatives to animal leather, with monogrammed linings giving a second life to ocean plastics.
+                </p>
+                </div>
+            </section>
+            <section class="sec sec03 product">
+                <div class="container">
+                   <h2 id="title">NEW PRODUCT</h2>
+                   <ul>
+                    <li>
+                        <a href="#">
+                            <p>Hobbs Sustain<br>Berwick Leather Crossbody Bag<br>£199</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p>Hobbs Sustain<br>Berwick Leather Crossbody Bag<br>£199</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p>Hobbs Sustain<br>Berwick Leather Crossbody Bag<br>£199</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p>Hobbs Sustain<br>Berwick Leather Crossbody Bag<br>£199</p>
+                        </a>
+                    </li>
+                   </ul>
+                </div>
+            </section>
+            <section class="sec sec04 product02">
+                <div class="container">
+                    <div class="img-box">
+                        <li class="model01">
+                            <a href="#">
+                                <span>IN FOCUS</span>
+                                <h2>LINEN TO LIVE IN</h2>
+                                <p>Naturally breathable, look to our superior quality linen shirts, <br>
+                                trousers and dresses to create chic yet comfortable warm weather outfits.
+                                </p>
+                                <span>SHOP LINEN</span>
+                            </a>
+                        </li>
+                    </div>    
+                </div>
+            </section>
+            <section class="middle-banner">
+                <div class="middle-banner-inner">
+                  <div class="bn01">
+                    <a href="#">
+                        <img src="./images/홉스런던.PNG" alt="">
+                        <div class="slide-txt">
+                            <p>Women`s Anthumn 2024 show!</p>
+                            <span>Discover View</span>
+                        </div>
+                    </a>
+                  </div>
+                </div>
+            </section>
+            <section class="sec sec06 product03">
+                <div class="container">
+                    <h2 id="title2">NEW Luxury</h2>
+                    <h3>up in the  clouds on my way to unknown things!</h3>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <p>Hobbs Sustain<br>Berwick Leather Crossbody Bag<br>£199</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <p>Hobbs Sustain<br>Berwick Leather Crossbody Bag<br>£199</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <p>Hobbs Sustain<br>Berwick Leather Crossbody Bag<br>£199</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <p>Hobbs Sustain<br>Berwick Leather Crossbody Bag<br>£199</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <p>Hobbs Sustain<br>Berwick Leather Crossbody Bag<br>£199</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <p>Hobbs Sustain<br>Berwick Leather Crossbody Bag<br>£199</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <p>Hobbs Sustain<br>Berwick Leather Crossbody Bag<br>£199</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <p>Hobbs Sustain<br>Berwick Leather Crossbody Bag<br>£199</p>
+                                </a>
+                            </li>
+                        </ul>
+                 </div>
+            </section>
+            <section class=" sec sec07 product04">
+                <div class="container">
+                    <div class="product04-inner">
+                        <div class="bn03">
+                            <img src="./images/소라고동.png">
+                        </div>
+                        <!-- <div class="swiper-slide">
+                            <img src="./images/가방02.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/가방03.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/가방04.jpg" />
+                        </div> -->
+                    </div>
+                    <div class="product04Text">
+                    <h2>Beauty Stella</h2>
+                    <p>
+                        New In
+                        Discover Stella McCartney’s latest runway collections and innovations across consciously<br>
+                        crafted luxury ready-to-wear, shoes, vegan bags and accessories each designed with<br>
+                        sustainability in mind and Mother Earth at heart.<br>
+                        Stella McCartney emboldens confident femininity with elevated yet effortless, conscious<br>
+                        fashion. Committed to being an ethical and modern company,<br> 
+                        we believe that we are to be held accountable for the resources we use and the impact we have on the environment.<br>
+                    </p>
+                    <span>Discover more</span>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+              </section>
+              <footer class="footer">
+                <div class="footer-inner">
+                    <div class="container">
+                        <div class="footer01">
+                            <h2>Sign up for email updates</h2>
+                            <div class="email-text">
+                                <input type="text" name="e-mail-text" class="search-txt" placeholder="Your email">
+                                <input type="submit" value="submit">
+                            </div>
+                            <p>
+                                Be first to hear about news and offers, plus as a new customer you can enjoy<br>
+                                10% off your first full priced order. By signing up you agree we will send you<br>
+                                marketing updates and accept our Privacy Policy.
+                            </p>
+                            <div class="checkbox">
+                                <input type="checkbox" name="kind" value="Women">Women
+                                <input type="checkbox" name="kind" value="Adidas">Adidas
+                                <input type="checkbox" name="kind" value="Unisex">Unisex
+                                <input type="checkbox" name="kind" value="Kids">Kids
+                                <input type="checkbox" name="kind" value="Sustainiabillity">Sustainiabillity
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="requirement">
+                    <div class="requirement-inner">
+                        <ul>
+                            <li class="requirement01">
+                                <h5>Cusomer Service</h5>
+                                <p>Shipping</p>
+                                <p>Exchanges</p>
+                                <p>Returns</p>
+                                <p>Create an Exchange or Return</p>
+                                <p>FAQ</p>
+                                <p>Contact Us</p>
+                                <p>Follow my Order</p>
+                            </li>
+                            <li class="requirement02">
+                                <h5>Corporate</h5>
+                                <p>Site Map</p>
+                                <p>Careers</p>
+                                <p>Privacy Policy</p>
+                                <p>Cookie Policy</p>
+                                <p>Cookie Settings</p>
+                                <p>Term & Conditions</p>
+                                <p>Modern Slavery Act</p>
+                                <p>Accessibillity</p>
+                            </li>
+                            <li class="requirement03">
+                                <h5>Categories</h5>
+                                <p>About Stella</p>
+                                <p>adidas</p>
+                                <p>Lingerie</p>
+                                <p>Eyewear</p>
+                                <p>Charity</p>
+                                <p>Sustainabillity</p>
+                            </li>
+                            <li class="requirement04">
+                                <h5>Follow us</h5>
+                                <p>Facebook</p>
+                                <p>Twitter</p>
+                                <p>Instagram</p>
+                                <p>YouTube</p>
+                            </li>
+                            <li class="requirement05">
+                                <h5>Need Help?</h5>
+                                <p>Store Locator</p>
+                                <p>Email us</p>
+                                <p>Call us 0808 196 3868</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-credit">
+                        <div class="footer-inner">
+                            <div class="charge01"></div>
+                            <div class="charge02"></div>
+                        </div>
+                    </div>
+                  </div>
+              </footer>
+        </div>
+    </div>
+    <script>
+    //슬라이드 부분
+    $(function(){
+     const progressCircle = document.querySelector(".autoplay-progress svg");
+     const progressContent = document.querySelector(".autoplay-progress span");
+    var swiper = new Swiper(".mySwiper", {
+       spaceBetween: 30,
+         centeredSlides: true,
+       autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+       },
+       on: {
+         autoplayTimeLeft(s, time, progress) {
+      progressCircle.style.setProperty("--progress", 1 - progress);
+          progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+        }
+       }
+     });
+
+    $("nav > ul > li").mouseenter(function(){
+  $(this).children(".sub-nav").stop().slideDown(400);
+});
+
+/*메인메뉴에서 마우스 커서가 떠나면, 서브메뉴 드롭업으로 사라짐*/
+$("nav > ul > li").mouseleave(function(){
+  $(this).children(".sub-nav").stop().slideUp(200);
+});
+
+
+    new TypeIt("#title", {
+      String: "Alex MacArthur",
+      waitUntilVisible: true,
+      loop: true,
+    })
+    .pause(1000)
+    .delete(7, { delay: 1000 })
+    .type("Anthumn")
+    .pause(1000)
+    .delete(7, { delay: 1000 })
+    .go();
+    
+    new TypeIt("#title2", {
+      String: "Alex MacArthur",
+      waitUntilVisible: true,
+      loop: true,
+    })
+    .pause(1000)
+    .delete(7, { delay: 1000 })
+    .type(" Arrival")
+    .pause(1000)
+    .delete(7, { delay: 1000 })
+    .go();
+
+    wow = new WOW(
+      {
+      boxClass:     'wow',      // default
+      animateClass: 'animated', // default
+      offset:       1,          // default
+      mobile:       true,       // default
+      live:         true        // default
+      }
+    )
+    wow.init();
+    })
+
+    
+
+  
+    </script>
+</body>
+</html>
